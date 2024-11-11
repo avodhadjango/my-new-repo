@@ -1,0 +1,227 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tourist Website</title>
+    {% load static %}
+
+    <!-- Internal CSS Styles -->
+    <style>
+        / Basic Reset /
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        / Navbar Styling /
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: green;
+            color: white;
+        }
+
+        .navbar ul {
+            list-style: none;
+            display: flex;
+        }
+
+        .navbar ul li {
+            margin-left: 20px;
+        }
+
+        .register-btn {
+            background-color: #ff6600;
+            padding: 10px 20px;
+            color: white;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+
+        / Hero Section /
+        .hero {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 500px;
+            background-size: cover;
+            color: white;
+            text-align: center;
+        }
+
+        .hero-content .btn-primary {
+            background-color: #ff6600;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            color: white;
+        }
+
+        / Gallery Section /
+        .gallery-section {
+            text-align: center;
+            padding: 50px 20px;
+        }
+
+        .gallery img {
+            width: 100%;
+            max-width: 300px;
+            margin: 10px;
+            border-radius: 5px;
+            transition: transform 0.3s;
+        }
+
+        .gallery img:hover {
+            transform: scale(1.05);
+        }
+
+        / Features Section /
+        .features {
+            display: flex;
+            justify-content: center;
+            padding: 50px 20px;
+        }
+
+        .feature-card {
+            margin: 0 20px;
+            padding: 20px;
+            background-color: #f4f4f4;
+            border-radius: 5px;
+            width: 250px;
+            text-align: center;
+        }
+
+        / Testimonials /
+        .testimonial-carousel {
+            display: flex;
+            justify-content: center;
+            padding: 50px 20px;
+        }
+
+        .testimonial {
+            margin: 0 20px;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+            max-width: 300px;
+        }
+
+        / CTA Section /
+        .cta {
+            text-align: center;
+            padding: 40px 20px;
+            background-color: #ff6600;
+            color: white;
+        }
+
+        / Footer /
+        footer {
+            padding: 20px;
+            text-align: center;
+            background-color: #333;
+            color: white;
+        }
+
+        .social-links a {
+            color: white;
+            margin: 0 10px;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <a href="#" class="logo">Tourist Site</a>
+        <ul>
+            <li><a href="#destinations">Destinations</a></li>
+            <li><a href="#features">Features</a></li>
+            <li><a href="#testimonials">Testimonials</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="{% url 'register' %}" class="register-btn">Register</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" style="background-image: url('{% static 'images/hero.jpg' %}');">
+        <div class="hero-content">
+            <h1>Explore Beautiful Destinations</h1>
+            <p>Unforgettable journeys await. Discover with us.</p>
+            <a href="{% url 'register' %}" class="btn-primary">Register Now</a>
+        </div>
+    </section>
+
+    <!-- Destinations Section -->
+    <section id="destinations" class="gallery-section">
+        <h2>Popular Destinations</h2>
+        <div class="gallery">
+            <img src="{% static 'images/destination1.jpg' %}" alt="Destination 1">
+            <img src="{% static 'images/destination2.jpg' %}" alt="Destination 2">
+            <img src="{% static 'images/destination3.jpg' %}" alt="Destination 3">
+            <img src="{% static 'images/destination4.jpg' %}" alt="Destination 4">
+            <img src="{% static 'images/destination8.jpg' %}" alt="Destination 5">
+            <img src="{% static 'images/destination7.jpg' %}" alt="Destination 6">
+
+
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features">
+        <h2>Why Choose Us</h2>
+        <div class="features">
+            <div class="feature-card">
+                <h3>Exclusive Deals</h3>
+                <p>Get the best travel packages with us.</p>
+            </div>
+            <div class="feature-card">
+                <h3>24/7 Support</h3>
+                <p>We’re here to help you anytime, anywhere.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Custom Itineraries</h3>
+                <p>Personalized travel plans to suit your needs.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials">
+        <h2>What Our Clients Say</h2>
+        <div class="testimonial-carousel">
+            <div class="testimonial">
+                <p>"Amazing experience! Highly recommended."</p>
+                <span>- John Doe</span>
+            </div>
+            <div class="testimonial">
+                <p>"Best vacation ever, thanks to this team!"</p>
+                <span>- Jane Smith</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action Section -->
+    <section class="cta">
+        <h2>Ready to Explore?</h2>
+        <p>Register now to unlock exclusive deals and personalized recommendations.</p>
+        <a href="{% url 'register' %}" class="btn-primary">Register Now</a>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2024 Tourist Website</p>
+            <div class="social-links">
+                <a href="#">Facebook</a>
+                <a href="#">Instagram</a>
+                <a href="#">Twitter</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
